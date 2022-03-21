@@ -1,0 +1,13 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "todolist",
+  "description": "&#39;这个项目使用了  taro + vue + vantui + ts&#39;",
+  "appid": "touristappid",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}
