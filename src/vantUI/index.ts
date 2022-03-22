@@ -1,4 +1,4 @@
-import * as vantUI from './importVantUI'
+import vantUI from './importVantUI'
 
 const obj = {
 	install : function(Vue){

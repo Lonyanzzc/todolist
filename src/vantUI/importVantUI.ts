@@ -1,20 +1,21 @@
-import 'vant/es/form/style';
-import 'vant/es/field/style';
-import 'vant/es/cell-group/style';
-import 'vant/es/col/style';
-import 'vant/es/row/style';
+import { Row } from 'vant';
+import { Col } from 'vant';
+import { Button } from 'vant';
+import { Field } from 'vant';
+import { CellGroup } from 'vant';
+import { Cell } from 'vant';
+import { Checkbox } from "vant"
+import { Icon } from 'vant';
 
-import Form from 'vant/es/form';
-import Field from 'vant/es/field';
-import CellGroup from 'vant/es/cell-group';
-import Col from 'vant/es/col';
-import Row from 'vant/es/row';
 
-export {
-	Form,
-	Field,
+export default{
 	CellGroup,
+	Field,
+	Button,
+	Cell,
 	Col,
-	Row
+	Row,
+	Checkbox,
+	Icon,
 };
 
