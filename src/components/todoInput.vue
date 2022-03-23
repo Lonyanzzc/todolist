@@ -1,9 +1,9 @@
 <template>
     <div class="todo">
 	  <van-row justify="center">
-        <van-col span="20">
+        <van-col span="21">
           <van-cell-group>
-            <van-field v-model="task" label="todo " :colon="true" :center="true" placeholder="请随意输入" :autofocus="true">
+            <van-field v-model="input" label="todo" :colon="true" :center="true" placeholder="请随意输入" :autofocus="true">
             	<template #button>
             		<van-button size="small" type="primary" @click="submit">提交</van-button>
             	</template>
@@ -15,13 +15,19 @@
 </template>
 
 <script>
-import { defineComponent, reactive } from 'vue';
+import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
-  setup () {
-    let state = reactive({id : 0, obj:{name:'1'}});
+  setup (props, context) {
+    let input = ref(null)
+    
+    const submit = () => {
+      context.emit("add-list", input.value)
+    }
+    
     return {
-      state
+      input,
+      submit
     }
   }
 })

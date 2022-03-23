@@ -4,16 +4,21 @@
 			<van-col span="20" class="todolist-col">
 				<van-checkbox-group>
 					<van-cell-group inset>
-						<van-cell	v-for="(item, index) in list" icon="flower-o"
-							clickable
-							:key="item"
-							:title="`复选框 ${item}`"
+						<van-cell v-for="(item, index) in lists" clickable :key="item.value"
+							:title="item.value"
 							@click="toggle(index)">
-							<template #right-icon>
+							<template #icon>
 								<van-checkbox
-								:name="item"
-								v-model="checkboxRefs[index]"
+								:name="item.value"
+								v-model="item.checked"
 								@click.stop/>
+							</template>
+							<template #right-icon>
+								<van-button round type="primary" class="delete"
+									@click.stop="removeItem(index)"
+									size="small" color="#f56d79">
+									删除
+								</van-button>
 							</template>
 						</van-cell>
 					</van-cell-group>
@@ -24,23 +29,24 @@
 </template>
 
 <script>
-import { ref, onBeforeUpdate } from 'vue';
+import { ref } from 'vue';
 
 export default {
+	props: {
+		lists: Array
+	},
 	setup(props, context) {
-		const checkboxRefs = ref([]);
 		const toggle = (index) => {
-			checkboxRefs.value[index] = !checkboxRefs.value[index];
+			context.emit("checked", index)
 		};
 
-		onBeforeUpdate(() => {
-			checkboxRefs.value = [];
-		});
+		const removeItem = (index) => {
+			context.emit("removeItem", index)
+		};
 
 		return {
-			list: ['a', 'b'],
 			toggle,
-			checkboxRefs,
+			removeItem
 		};
 	},
 }
