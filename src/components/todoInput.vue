@@ -3,7 +3,7 @@
 	  <van-row justify="center">
         <van-col span="21">
           <van-cell-group>
-            <van-field v-model="input" label="todo" :colon="true" :center="true" placeholder="请随意输入" :autofocus="true">
+            <van-field v-model="input" label="todo" :colon="true" :center="true" placeholder="请随意输入" :autofocus="true" ref="field">
             	<template #button>
             		<van-button size="small" type="primary" @click="submit">提交</van-button>
             	</template>
@@ -20,13 +20,17 @@ import { defineComponent, ref } from 'vue';
 export default defineComponent({
   setup (props, context) {
     let input = ref(null)
-    
+    let field = ref(null)
+
     const submit = () => {
       context.emit("add-list", input.value)
+      input.value =''
+      field.value.focus()
     }
     
     return {
       input,
+      field,
       submit
     }
   }
