@@ -1,12 +1,12 @@
 import {Request, Response} from "express";
-import { AppDataSource } from '../data-source'
+import { AppDataSource } from '../index'
 import { User } from '../entity/User'
 
 export async function postRemoveAction(request: Request, response: Response) {
 
     const userRepository = AppDataSource.getRepository(User)
-    
-    request.body.ids.array.forEach(async id => {
+    console.log(request)
+    request.body.forEach(async id => {
         const user = await userRepository.findOneBy(id)
         if (!user) {
             response.status(404);

@@ -29,7 +29,8 @@
 </template>
 
 <script>
-import { reactive, ref} from 'vue'
+import { reactive, ref, inject, created} from 'vue'
+import qs from 'qs'
 
 import TodoInput from '../../components/todoInput.vue'
 import TodoList from '../../components/todoList.vue'
@@ -41,14 +42,17 @@ export default {
 		TodoList
 	},
 	setup(){
-		let lists = reactive([
-				{value:"选项1", checked:false},
-				{value:"选项2", checked:false},
-				{value:"选项3", checked:false},
-				{value:"选项4", checked:false},
-			]);
+		const axios = inject('axios')
+
+		let lists = reactive([]);
 		let show = ref(false)
 		let active = ref()
+
+		axios.get('posts').then( res => {
+			res.data.forEach(list => {
+				lists.push(list)
+			})
+		})
 
 		//选择某个数据
 		const checked = (index) => {
@@ -58,12 +62,24 @@ export default {
 		const addList = (value) => {
 			const list = reactive({
 				value,
-				checked: false
+				id: lists.length+1,
+				checked: false,
 			})
-			lists.push(list)
+			lists.push(list);
+			console.log(list)
+			axios({
+				method: 'POST',
+				url: 'posts',
+				data: list,
+			})
 		}
 		const removeItem = (index) => {
-			lists.splice(index,1)
+			const list = lists.splice(index,1)
+			axios({
+				method: 'delete',
+				url: 'posts',
+				data: [list.index],
+			})
 		}
 
 		//全选后全不选或者删除所有已选
@@ -78,12 +94,19 @@ export default {
 			})
 		}
 		const deleteSelect = () => {
+			let deleteLists = []
 			for(let i = 0; i<lists.length; i++){
 				if(lists[i].checked === true){
+					deleteLists.push(lists[i].index)
 					lists.splice(i, 1);
 					i--
 				}
 			}
+			axios({
+				method: 'delete',
+				url: 'posts',
+				data: deleteLists,
+			})
 		}
 			
 		return {

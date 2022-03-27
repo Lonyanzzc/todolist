@@ -7,12 +7,9 @@ export class User {
     id: number
 
     @Column()
-    firstName: string
+    checked: boolean
 
     @Column()
-    lastName: string
-
-    @Column()
-    age: number
+    value: string
 
 }

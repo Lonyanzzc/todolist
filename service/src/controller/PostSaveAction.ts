@@ -1,8 +1,11 @@
 import {Request, Response} from "express";
-import { AppDataSource } from '../data-source'
+import { AppDataSource } from '../index'
 import { User } from '../entity/User'
 
 export async function postSaveAction(request: Request, response: Response) {
+    console.log(request.body)
+    if(!request.body)
+        return
 
     const newPost = new User()
     Object.keys(request.body).forEach(item => {

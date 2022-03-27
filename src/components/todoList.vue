@@ -30,12 +30,13 @@
 
 <script>
 import { ref } from 'vue';
+import axios from 'axios'
 
 export default {
 	props: {
 		lists: Array
 	},
-	setup(props, context) {
+	setup(props, context) {	
 		const toggle = (index) => {
 			context.emit("checked", index)
 		};

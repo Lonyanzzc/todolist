@@ -40,8 +40,10 @@
     "@tarojs/plugin-html": "^3.4.3",
     "@tarojs/runtime": "3.4.3",
     "@tarojs/taro": "3.4.3",
+    "axios": "^0.26.1",
     "vant": "^3.4.6",
     "vue": "^3.0.0",
+    "vue-axios": "^3.4.1",
     "vuex": "^4.0.0-beta.4"
   },
   "devDependencies": {
