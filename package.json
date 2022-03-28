@@ -2,12 +2,7 @@
   "name": "todolist",
   "version": "1.0.0",
   "private": true,
-  "description": "&#39;这个项目使用了  taro + vue + vantui + ts&#39;",
-  "templateInfo": {
-    "name": "vue3-vuex",
-    "typescript": true,
-    "css": "none"
-  },
+  "description": "这个项目使用了  taro + vue + vantui + ts",
   "scripts": {
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
@@ -31,8 +26,7 @@
     "Android >= 4.1",
     "ios >= 8"
   ],
-  "author": "",
-  "license": "MIT",
+  "author": "Lonyanzzc",
   "dependencies": {
     "@babel/runtime": "^7.7.7",
     "@tarojs/components": "3.4.3",
@@ -43,8 +37,7 @@
     "axios": "^0.26.1",
     "vant": "^3.4.6",
     "vue": "^3.0.0",
-    "vue-axios": "^3.4.1",
-    "vuex": "^4.0.0-beta.4"
+    "vue-axios": "^3.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
