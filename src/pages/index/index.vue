@@ -62,11 +62,10 @@ export default {
 		const addList = (value) => {
 			const list = reactive({
 				value,
-				id: lists.length+1,
+				id: Number(Math.random().toString().substring(2,10)),
 				checked: false,
 			})
 			lists.push(list);
-			console.log(list)
 			axios({
 				method: 'POST',
 				url: 'posts',
@@ -78,7 +77,7 @@ export default {
 			axios({
 				method: 'delete',
 				url: 'posts',
-				data: [list.index],
+				data: [list.id],
 			})
 		}
 
@@ -97,7 +96,7 @@ export default {
 			let deleteLists = []
 			for(let i = 0; i<lists.length; i++){
 				if(lists[i].checked === true){
-					deleteLists.push(lists[i].index)
+					deleteLists.push(lists[i].id)
 					lists.splice(i, 1);
 					i--
 				}

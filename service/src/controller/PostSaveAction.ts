@@ -3,7 +3,6 @@ import { AppDataSource } from '../index'
 import { User } from '../entity/User'
 
 export async function postSaveAction(request: Request, response: Response) {
-    console.log(request.body)
     if(!request.body)
         return
 

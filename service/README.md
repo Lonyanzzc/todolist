@@ -1,7 +1,21 @@
-# Awesome Project Build with TypeORM
 
-Steps to run this project:
+### 启动服务器步骤：
 
-1. Run `npm i` command
-2. Setup database settings inside `data-source.ts` file
-3. Run `npm start` command
+## 后端安装依赖
+```
+npm install
+```
+
+## 打开mysql数据库
+```
+打开sql安装位置
+    如：cd c:\Program Files\MySQL\MySQL Server 8.0\bin
+连接sql：
+    mysql -u root -p
+
+```
+
+### 启动express
+```
+npm start
+```
