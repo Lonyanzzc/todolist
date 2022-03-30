@@ -1,10 +1,8 @@
 import { postGetAllAction } from "./controller/PostGetAllAction";
 import { postSaveAction } from "./controller/PostSaveAction";
 import { postRemoveAction } from "./controller/PostRemoveAction";
+import { postChangeAction } from "./controller/postChangeAction";
 
-/**
- * All application routes.
- */
 export const AppRoutes = [
     {
         path: "/posts",
@@ -20,5 +18,10 @@ export const AppRoutes = [
         path: "/posts",
         method: "delete",
         action: postRemoveAction
-    }
+    },
+    {
+        path: "/change",
+        method: "post",
+        action: postChangeAction
+    },
 ];

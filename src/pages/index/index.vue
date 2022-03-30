@@ -73,6 +73,7 @@ export default {
 		}
 		const removeItem = (index) => {
 			const list = lists.splice(index,1)
+			console.log(list);
 			axios({
 				method: 'delete',
 				url: 'posts',

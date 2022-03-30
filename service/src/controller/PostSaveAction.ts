@@ -14,5 +14,5 @@ export async function postSaveAction(request: Request, response: Response) {
     await AppDataSource.manager.save(newPost)
     console.log("Photo has been saved. Photo id is", newPost.id)
 
-    response.send(newPost);
+    response.send("save success");
 }
