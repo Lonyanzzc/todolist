@@ -30,7 +30,6 @@
 
 <script>
 import { reactive, ref, inject, created} from 'vue'
-import qs from 'qs'
 
 import TodoInput from '../../components/todoInput.vue'
 import TodoList from '../../components/todoList.vue'
