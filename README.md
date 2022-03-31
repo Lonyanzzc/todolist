@@ -6,7 +6,10 @@
 
 ## 项目前端安装依赖
 ```
-npm install
+1. npm install
+2. npm install -g @tarojs/cli
+
+如果出现sass错误,则继续安装：3. npm install -g mirror-config-china
 ```
 
 ### 启动各种端的项目
